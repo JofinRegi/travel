@@ -62,4 +62,4 @@ admin.site.register(Booking, BookingDetails)
 admin.site.register(HealthAssistant)
 
 admin.site.unregister(Group)
-admin.site.site_header = 'MARY MATHA TOURISM PACKAGE HUB'
+admin.site.site_header = 'JOFIN REGI PROJECT'
