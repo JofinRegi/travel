@@ -185,34 +185,10 @@
         </td>
             
             <td>
-            {% else %}
-            {% if booking.status == "pending"  %}
-            <form action="{% url 'cancel_booking' booking.id %}" method="post">
-              {% csrf_token %}
-              <button type="button" class="btn btn-danger{% if booking.status == 'approved' %} d-none{% endif %}" data-bs-toggle="modal" data-bs-target="#cancelBooking">
-                Cancel
-              </button>
-              <div class="modal fade" id="cancelBooking" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-                aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
-                  <div class="modal-content">
-                    <div class="modal-body">
-                      <h2 style="text-align: center;">Are you sure?</h2>
-                    </div>
-                    <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary">Yes</button>
-                    <button type="button" class="btn btn-primary"  data-bs-dismiss="modal">No</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </form>
-          
-
-            
+              
             {% endif %}
           
-          {% if booking.status == "approved" %}
+          {% if booking.status in "approved" or booking.status in "pending" %}
           <div class="d-flex" style="gap: 20px;">
           <form action="{% url 'cancel_booking' booking.id %}" method="post">
             {% csrf_token %}
@@ -284,7 +260,6 @@
 
           {% else %}
          
-          {% endif %}
           {% endif %}
 
 

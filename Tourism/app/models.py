@@ -53,6 +53,8 @@ class Booking(models.Model):
         ('booked', 'booked'),
         ('pending', 'pending'),
         ('reject', 'reject'),
+        ('paid', 'paid'),
+        ('approved', 'approved')
     )
     user_id = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     package_id = models.ForeignKey(Package, on_delete=models.CASCADE)
